@@ -56,8 +56,7 @@ class Wallpaper(QWidget):
             temp_pixmap = QPixmap.fromImage(temp_image)
             self.label.setPixmap(temp_pixmap)
         else:
-            self.capture.release()
-            self.capture.open(self.src)
+            self.capture.set(cv2.CAP_PROP_POS_AVI_RATIO, 0)
 
     def set_dynamic_wallpaper(self):
         hwnd_0 = win32gui.FindWindow('Progman', None)

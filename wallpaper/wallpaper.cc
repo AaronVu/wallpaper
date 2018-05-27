@@ -41,7 +41,12 @@ void Wallpaper::SetWallpaper() {
 }
 
 void Wallpaper::SetDesktopWallpaper() {
-	PWSTR pszFile = L".\\Resources\\Wallpaper.bmp";
+	char path[MAX_PATH];
+	GetCurrentDirectory(MAX_PATH, (LPWSTR)path);
+	CString file = L"\\Resources\\Wallpaper.bmp";
+	CString t_path;
+	t_path.Format(L"%s", path);
+	t_path += file;
 	SystemParametersInfo(SPI_SETDESKWALLPAPER, 0, static_cast<PVOID>(pszFile), SPIF_UPDATEINIFILE | SPIF_SENDWININICHANGE);
 }
 

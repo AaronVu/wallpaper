@@ -47,7 +47,7 @@ void Wallpaper::SetDesktopWallpaper() {
 	CString t_path;
 	t_path.Format(L"%s", path);
 	t_path += file;
-	SystemParametersInfo(SPI_SETDESKWALLPAPER, 0, static_cast<PVOID>(pszFile), SPIF_UPDATEINIFILE | SPIF_SENDWININICHANGE);
+	SystemParametersInfo(SPI_SETDESKWALLPAPER, 0, static_cast<PVOID>(t_path.GetBuffer()), SPIF_UPDATEINIFILE | SPIF_SENDWININICHANGE);
 }
 
 
